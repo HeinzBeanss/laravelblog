@@ -19,6 +19,9 @@
         @if ($posts->count())
         <x-post-grid :posts="$posts" />
 
+
+        {{ $posts->links() }}
+
         @else
         <p>No posts yet!</p>
         @endif
