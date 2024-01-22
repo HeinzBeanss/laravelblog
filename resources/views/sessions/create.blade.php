@@ -1,30 +1,19 @@
 <x-layout>
     <section class="px-6 py-8">
-        <main class="max-w-lg mx-auto mt-10 bg-grey-100 p-6 rounded-xl border-gray-200">
-            <h1 class="text-center font-bold text-xl">Log In</h1>
+        <main class="max-w-lg mx-auto mt-10">
+            <x-panel>
+                <h1 class="text-center font-bold text-xl">Log In!</h1>
 
-            <form method="POST" action="/login">
+                <form method="POST" action="/login">
 
-                @csrf
+                    @csrf
 
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700">Email</label>
-                    <input class="border border-gray-400 p-2 w-full" type="text" name="email" id="email"
-                        value="{{ old('email') }}" required>
-                    @error('email')
-                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                    @enderror
-                </div>
-
-
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700">Password</label>
-                    <input class="border border-gray-400 p-2 w-full" type="password" name="password" id="password"
-                        required>
-                </div>
-
-                <button type="submit">Submit</button>
-            </form>
+                    <x-form.input name="email" type="email" autocomplete="username" />
+                    <x-form.input name="password" type="password" autocomplete="current-password" />
+                    <button type="submit">Submit</button>
+                    <x-form.button>Log In</x-form.button>
+                </form>
+            </x-panel>
         </main>
     </section>
 </x-layout>
